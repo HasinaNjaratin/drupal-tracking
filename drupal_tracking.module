@@ -1,0 +1,32 @@
+<?php
+
+/**
+ * @file
+ * Contains drupal_tracking.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function drupal_tracking_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the drupal_tracking module.
+    case 'help.page.drupal_tracking':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Module to manage tracking features') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_page_attachments_alter().
+ */
+function drupal_tracking_page_attachments_alter(&$page) {
+  // Attach tracking js library.
+  $page['#attached']['library'][] = 'drupal_tracking/drupal_tracking_library';
+}

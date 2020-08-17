@@ -1,0 +1,12 @@
+services:
+  drupal_tracking.subscriber:
+    class: Drupal\drupal_tracking\EventSubscriber\DrupalTrackingSubscriber
+    arguments: ['@drupal_tracking.service', '@path.validator']
+    tags:
+      - { name: event_subscriber }
+  logger.channel.drupal_tracking:
+    parent: logger.channel_base
+    arguments: ['drupal_tracking']
+  drupal_tracking.service:
+    class: Drupal\drupal_tracking\Service\DrupalTrackingService
+    arguments: ['@tempstore.private','@logger.factory']

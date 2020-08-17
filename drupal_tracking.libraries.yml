@@ -1,0 +1,5 @@
+drupal_tracking_library:
+  js:
+    js/drupal_tracking.js: {}
+  dependencies:
+    - core/drupal.ajax

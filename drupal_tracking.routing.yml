@@ -1,0 +1,9 @@
+
+drupal_tracking.do_tracking:
+  path: '/drupal_tracking/do-tracking'
+  methods: [POST]
+  defaults:
+    _controller: '\Drupal\drupal_tracking\Controller\DrupalTrackingController::doTracking'
+    _title: 'Tracking'
+  requirements:
+    _permission: 'access content'
